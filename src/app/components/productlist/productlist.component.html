@@ -1,3 +1,95 @@
-<div class="m-5 content-style" >
+
+
+<div class="table-wrapper">
+
+    <!-- Form to edit/add row -->
+    <form (submit)="onSubmit()" #productForm="ngForm">
+
+        <mat-form-field>
+            <input matInput placeholder="ProductCode" name="ProductCode" required [(ngModel)]="productData.ProductCode">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ProductDescriptionOriginal" name="ProductDescriptionOriginal" required [(ngModel)]="productData.ProductDescriptionOriginal">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ProductDescription" name="ProductDescription" required [(ngModel)]="productData.ProductDescription">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ProductCategory" name="ProductCategory" required [(ngModel)]="productData.ProductCategory">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ProductStatus" name="ProductStatus" required [(ngModel)]="productData.ProductStatus">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ProductBarcode" name="ProductBarcode" required [(ngModel)]="productData.ProductBarcode">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Rowchecksum" name="Rowchecksum" required [(ngModel)]="productData.Rowchecksum">
+        </mat-form-field>
     
+        <ng-container *ngIf="isEditMode; else elseTemplate">
+            <button mat-button color="primary">Update</button>
+            <a mat-button color="warn" (click)="cancelEdit()">Cancel</a>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <button mat-button color="primary">Add</button>
+        </ng-template>
+    
+    </form>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="ProductsID">
+        <th mat-header-cell *matHeaderCellDef> #ProductsID </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProductsID}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductCode">
+        <th mat-header-cell *matHeaderCellDef> ProductCode </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProductCode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductDescriptionOriginal">
+        <th mat-header-cell *matHeaderCellDef> ProductDescriptionOriginal </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProductDescriptionOriginal}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductDescription">
+        <th mat-header-cell *matHeaderCellDef> ProductDescription </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProductDescription}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductCategory">
+        <th mat-header-cell *matHeaderCellDef> ProductCategory </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProductCategory}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductStatus">
+        <th mat-header-cell *matHeaderCellDef> ProductStatus </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProductStatus}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ProductBarcode">
+        <th mat-header-cell *matHeaderCellDef> ProductBarcode </th>
+        <td mat-cell *matCellDef="let element"> {{element.ProductBarcode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Rowchecksum">
+        <th mat-header-cell *matHeaderCellDef> Rowchecksum </th>
+        <td mat-cell *matCellDef="let element"> {{element.Rowchecksum}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+            <a href="javascript:void(0)" (click)="editProduct(element)">Edit</a> |
+            <a href="javascript:void(0)" (click)="deleteProduct(element.id)">Delete</a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+        [ngClass]="{'editable-row': productData.ProductsID === row.id}"></tr>
+</table>
+<mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
 </div>
