@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LayoutContainerComponent } from './components/layout-container/layout-container.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
 import { ProductlistComponent } from './components/productlist/productlist.component';
 
 @NgModule({
@@ -17,7 +19,8 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
