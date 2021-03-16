@@ -57,13 +57,14 @@ export class ProductlistComponent implements OnInit {
 
       // Approach #1 to update datatable data on local itself without fetching new data from server
       this.dataSource.data = this.dataSource.data.filter((o: any) => {
+        console.log(o);
         return o.ProductsID !== productId ? o : false;
       });
 
-      console.log(this.dataSource.data);
+      //console.log(this.dataSource.data);
 
-      // Approach #2 to re-call getAllStudents() to fetch updated data
-      // this.getAllStudents()
+      // Approach #2 to re-call getAllProducts() to fetch updated data
+      // this.getAllProducts()
     });
   }
 
@@ -87,8 +88,8 @@ export class ProductlistComponent implements OnInit {
         return o;
       });
 
-      // Approach #2 to re-call getAllStudents() to fetch updated data
-      // this.getAllStudents()
+      // Approach #2 to re-call getAllProducts() to fetch updated data
+      // this.getAllProducts()
 
       this.cancelEdit();
 
