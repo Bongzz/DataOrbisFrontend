@@ -1,0 +1,7 @@
+.content-style {
+    height: calc(50vh);
+    background-color: aliceblue;
+    box-shadow: 1px 2px 11px rgba(0, 0, 0, .1);
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+  }

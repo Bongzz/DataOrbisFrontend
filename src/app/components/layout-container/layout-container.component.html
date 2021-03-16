@@ -1,0 +1,39 @@
+
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+  <div class="h2 Smollan-dark-blue-text ">Dashboard</div>
+
+</div>
+
+<style>
+ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+ol li {
+  counter-increment: my-awesome-counter;
+}
+ol li::before {
+  content: counter(my-awesome-counter) ". ";
+  color: rgb(46, 119, 230);
+  font-weight: bold;
+}
+
+
+
+body {
+  font-family: Montserrat, sans-serif;
+}
+</style>
+
+<div class="m-5 content-style" >
+  <div class="text-center m-1 p-1 h2 ">Welcome to the DataOrbis Angular assessment.</div>
+  <div class="text-left p-3 ">Instructions:</div>
+  <ol>
+    <li>Add a link to the Product Management side menu to route to the productlist component. </li>
+    <li>Setup a table view for the Product table.</li>
+    <li>Link the API so that the products show in the table. To make this request add a service to the project and connect to the Json file.</li>
+    <li>Add an Action column to allow for Edit and Delete functionality. Use a POPUP dialog to show the content that is getting edited or deleted.      </li>
+  </ol>
+</div>

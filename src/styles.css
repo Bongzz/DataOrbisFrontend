@@ -1,0 +1,181 @@
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.navbar-top-gradient {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#00aeef+0,00aae8+50,00aeef+100 */
+  background: #00aeef; /* Old browsers */
+  background: -moz-linear-gradient(left,  #00aeef 0%, #00aae8 50%, #00aeef 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #00aeef 0%,#00aae8 50%,#00aeef 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #00aeef 0%,#00aae8 50%,#00aeef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00aeef', endColorstr='#00aeef',GradientType=1 ); /* IE6-9 */
+
+}
+
+.li {
+  border-top:1px solid #fff;
+  line-height: 2em;
+}
+
+.Smollan-dark-blue {
+  background-color: #002447;
+}
+.Smollan-dark-blue-text {
+  color: #002447;
+}
+
+.Smollan-medium-blue{
+  background-color: #005883;
+}
+
+.Smollan-medium-blue-text {
+  color: #005883;
+}
+
+.Smollan-smollan-blue{
+  background-color: #00aeef;
+}
+
+.Smollan-smollan-blue-text{
+  color: #00aeef !important;
+}
+
+.Smollan-light-cyan {
+  background-color: #66cef6;
+}
+
+.Smollan-dark-grey-neutral {
+  background-color: #455560;
+}
+
+.Smollan-mediumdark-grey-neutral {
+  background-color: #727b83;
+}
+
+.Smollan-medium-grey-neutral {
+  background-color: #95a0a9;
+}
+
+.Smollan-light-grey-neutral {
+  background-color: #e4e5e6;
+}
+
+.Smollan-extended-blue {
+  background-color: #037bc1;
+}
+.Smollan-extended-teal {
+  background-color: #037bc1;
+}
+
+.Smollan-extended-green {
+  background-color: #8cc63f;
+  border:0;
+}
+
+.Smollan-accent-purple {
+  background-color: #a154a1;
+}
+
+.Smollan-accent-lightred {
+  background-color: #ef406b;
+}
+
+.Smollan-accent-orange {
+  background-color: #fdb934;
+  border:1px solid #fdb934;
+}
+.Smollan-accent-orange:hover {
+  background-color: #d69605;
+}
+
+.Smollan-accent-yellow {
+  background-color: #ffe07f;
+}
+
+.fontsize09em {
+  font-size: 0.9em;
+}
+
+.fontsize1em {
+  font-size: 1em;
+}
+
+.fontsize11em {
+  font-size: 1.1em;
+}
+.fontsize12em {
+  font-size: 1.2em;
+}
+.fontsize125em {
+  font-size: 1.25em;
+}
+.fontsize13em {
+  font-size: 1.3em;
+}
+.fontsize14em {
+  font-size: 1.4em;
+}
+.fontsize15em {
+  font-size: 1.5em;
+}
+
+
+
+body {
+  font-size: .875rem;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: relative;
+  height: calc(100vh);
+  box-shadow: 1px 2px 11px rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
