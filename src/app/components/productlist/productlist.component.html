@@ -1,5 +1,11 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+  <div class="h2 Smollan-dark-blue-text ">Product Management (CRUD)</div>
+
+</div>
+
 <div class="mat-elevation-z8 m-5">
-  
+
     <table mat-table [dataSource]="dataSource">
   
       <ng-container matColumnDef="id">
@@ -45,7 +51,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button (click)="editProduct(element)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button (click)="editProduct(element)"><mat-icon>edit</mat-icon></button>
           <button mat-icon-button color="warn" (click)="deleteProduct(element.id)"><mat-icon>delete_outline</mat-icon></button>
         </td>
     </ng-container>

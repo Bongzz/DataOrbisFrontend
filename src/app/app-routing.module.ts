@@ -2,9 +2,10 @@ import { LayoutContainerComponent } from './components/layout-container/layout-c
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductlistComponent } from './components/productlist/productlist.component';
-//{path: '#', component: LayoutContainerComponent},
+
 const routes: Routes = [
-  {path: 'product-list', component: ProductlistComponent}
+  {path: '', component: LayoutContainerComponent},
+  {path: 'product-list', component: ProductlistComponent}  
 ];
 
 @NgModule({
