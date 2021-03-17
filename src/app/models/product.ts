@@ -1,6 +1,6 @@
 export class Product {
     constructor(
-        public ProductsID: number,
+        public id: number,
         public ProductCode: string,
         public ProductDescriptionOriginal: string,
         public ProductDescription: string,
@@ -8,6 +8,5 @@ export class Product {
         public ProductStatus: string,
         public ProductBarcode: string,
         public Rowchecksum: string
-        
         ) {}
 }

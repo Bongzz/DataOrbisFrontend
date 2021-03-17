@@ -15,8 +15,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
-import { ProductlistComponent } from './components/productlist/productlist.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
 
+import { ProductlistComponent } from './components/productlist/productlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,11 +33,13 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
     FormsModule,
     ReactiveFormsModule,
 
-    // Material Modules 
+    // Material Modules
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

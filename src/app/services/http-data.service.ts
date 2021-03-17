@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Product } from '../models/product';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Injectable({
   providedIn: 'root'
@@ -37,6 +38,30 @@ export class HttpDataService {
         );
     }
 
+    form: FormGroup = new FormGroup({
+        $id: new FormControl(null),
+        ProductCode: new FormControl(''),
+        ProductDescriptionOriginal: new FormControl(''),
+        ProductDescription: new FormControl(''),
+        ProductCategory: new FormControl(''),
+        ProductStatus: new FormControl('1'),
+        ProductBarcode: new FormControl(''),
+        Rowchecksum: new FormControl(''),
+      });
+
+    initializeFormGroup() {
+        this.form.setValue({
+          $id: null,
+          ProductCode: '',
+          ProductDescriptionOriginal: '',
+          ProductDescription: '',
+          ProductCategory: '',
+          ProductStatus: '1',
+          ProductBarcode: 0,
+          Rowchecksum: ''
+        });
+    }
+
     // Create a new product
     createItem(product: Product): Observable<Product> {
         return this.http
@@ -47,7 +72,7 @@ export class HttpDataService {
         );
     }
 
-    // Get single product data by product Id
+    // Get single product data by product id
     getItem(productId: number): Observable<Product> {
         return this.http
         .get<Product>(this.basePath + '/' + productId)
@@ -67,7 +92,7 @@ export class HttpDataService {
         );
     }
 
-    // Update product by product Id
+    // Update product by product id
     updateItem(productId: number, product: Product): Observable<Product> {
         return this.http
         .put<Product>(this.basePath + '/' + productId, JSON.stringify(product), this.httpOptions)
@@ -85,6 +110,4 @@ export class HttpDataService {
             catchError(this.handleError)
         );
     }
-
-
 }

@@ -4,6 +4,7 @@ import { HttpDataService } from 'src/app/services/http-data.service';
 import { NgForm } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import * as _ from 'lodash';
 
 @Component({
@@ -19,21 +20,20 @@ export class ProductlistComponent implements OnInit {
   productData: Product;
 
   dataSource = new MatTableDataSource();
-  displayedColumns: string[] = ['ProductsID', 'ProductCode', 'ProductDescriptionOriginal', 'ProductDescription', 'ProductCategory', 'ProductStatus', 'ProductBarcode', 'Rowchecksum', 'actions'];
+  displayedColumns: string[] = ['id', 'ProductCode', 'ProductDescriptionOriginal', 'ProductDescription', 'ProductCategory', 'ProductStatus', 'ProductBarcode', 'Rowchecksum', 'actions'];
   @ViewChild(MatPaginator, { static: true })
   paginator: MatPaginator | any;
+  dialog: MatDialog | any;
 
   isEditMode = false;
 
-  constructor(private httpDataService: HttpDataService) {
+  constructor(private httpDataService: HttpDataService,) {
     this.productData = {} as Product;
   }
 
   ngOnInit(): void {
-    // Initializing Datatable pagination
     this.dataSource.paginator = this.paginator;
 
-    // Fetch All Students on Page load
     this.getAllProducts();
   }
   getAllProducts(): void {
@@ -55,16 +55,10 @@ export class ProductlistComponent implements OnInit {
   deleteProduct(productId: number): void {
     this.httpDataService.deleteItem(productId).subscribe((response: any) => {
 
-      // Approach #1 to update datatable data on local itself without fetching new data from server
       this.dataSource.data = this.dataSource.data.filter((o: any) => {
         console.log(o);
-        return o.ProductsID !== productId ? o : false;
+        return o.id !== productId ? o : false;
       });
-
-      //console.log(this.dataSource.data);
-
-      // Approach #2 to re-call getAllProducts() to fetch updated data
-      // this.getAllProducts()
     });
   }
 
@@ -78,18 +72,14 @@ export class ProductlistComponent implements OnInit {
   }
 
   updateProduct(): void {
-    this.httpDataService.updateItem(this.productData.ProductsID, this.productData).subscribe((response: any) => {
+    this.httpDataService.updateItem(this.productData.id, this.productData).subscribe((response: any) => {
 
-      // Approach #1 to update datatable data on local itself without fetching new data from server
       this.dataSource.data = this.dataSource.data.map((o: any) => {
-        if (o.ProductsID === response.ProductsID) {
+        if (o.id === response.id) {
           o = response;
         }
         return o;
       });
-
-      // Approach #2 to re-call getAllProducts() to fetch updated data
-      // this.getAllProducts()
 
       this.cancelEdit();
 
@@ -108,5 +98,4 @@ export class ProductlistComponent implements OnInit {
       console.log('Enter valid data!');
     }
   }
-
 }
