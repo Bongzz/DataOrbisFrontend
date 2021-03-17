@@ -19,11 +19,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 
 import { ProductlistComponent } from './components/productlist/productlist.component';
+import { EditComponent } from './components/edit/edit.component';
 @NgModule({
   declarations: [
     AppComponent,
     LayoutContainerComponent,
-    ProductlistComponent
+    ProductlistComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

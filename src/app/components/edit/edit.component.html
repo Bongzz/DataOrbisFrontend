@@ -1,0 +1,34 @@
+<div mat-dialog-content>
+    <mat-form-field class="dialogForm">
+        <mat-label>Product Code</mat-label>
+        <input matInput [(ngModel)]="product.ProductCode">
+    </mat-form-field>
+    <mat-form-field class="dialogForm">
+        <mat-label>Product Description Original</mat-label>
+        <input matInput [(ngModel)]="product.ProductDescriptionOriginal">
+    </mat-form-field>
+    <mat-form-field class="dialogForm">
+        <mat-label>Product Description</mat-label>
+        <input matInput [(ngModel)]="product.ProductDescription">
+    </mat-form-field>
+    <mat-form-field class="dialogForm">
+        <mat-label>Product Category</mat-label>
+        <input matInput [(ngModel)]="product.ProductCategory">
+    </mat-form-field>
+    <mat-form-field class="dialogForm">
+        <mat-label>ProductStatus</mat-label>
+        <input matInput [(ngModel)]="product.ProductStatus">
+    </mat-form-field>
+    <mat-form-field class="dialogForm">
+        <mat-label>ProductBarcode</mat-label>
+        <input matInput [(ngModel)]="product.ProductBarcode">
+    </mat-form-field>
+    <mat-form-field class="dialogForm">
+        <mat-label>Rowchecksum</mat-label>
+        <input matInput [(ngModel)]="product.Rowchecksum">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()">Cancel</button>
+    <button mat-button (click)="addOrEditProduct()" cdkFocusInitial>{{isEdit ? 'Update' : 'Add'}}</button>
+</div>

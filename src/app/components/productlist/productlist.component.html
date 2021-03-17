@@ -3,9 +3,14 @@
   <div class="h2 Smollan-dark-blue-text ">Product Management (CRUD)</div>
 
 </div>
-
+<button
+    mat-raised-button
+    color="primary"
+    (click)="addProduct()"
+    class="ml-5">
+    Add Product
+  </button>
 <div class="mat-elevation-z8 m-5">
-
     <table mat-table [dataSource]="dataSource">
   
       <ng-container matColumnDef="id">

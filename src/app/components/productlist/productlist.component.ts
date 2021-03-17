@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import * as _ from 'lodash';
+import { EditComponent } from '../edit/edit.component';
 
 @Component({
   selector: 'app-productlist',
@@ -23,11 +24,11 @@ export class ProductlistComponent implements OnInit {
   displayedColumns: string[] = ['id', 'ProductCode', 'ProductDescriptionOriginal', 'ProductDescription', 'ProductCategory', 'ProductStatus', 'ProductBarcode', 'Rowchecksum', 'actions'];
   @ViewChild(MatPaginator, { static: true })
   paginator: MatPaginator | any;
-  dialog: MatDialog | any;
 
   isEditMode = false;
 
-  constructor(private httpDataService: HttpDataService,) {
+
+  constructor(private httpDataService: HttpDataService, public dialog: MatDialog) {
     this.productData = {} as Product;
   }
 
@@ -45,6 +46,7 @@ export class ProductlistComponent implements OnInit {
   editProduct(element: any): void {
     this.productData = _.cloneDeep(element);
     this.isEditMode = true;
+    this.openDialog(element);
   }
 
   cancelEdit(): void {
@@ -63,12 +65,8 @@ export class ProductlistComponent implements OnInit {
   }
 
   addProduct(): void {
-    this.httpDataService.createItem(this.productData).subscribe((response: any) => {
-      this.dataSource.data.push({ ...response });
-      this.dataSource.data = this.dataSource.data.map(o => {
-        return o;
-      });
-    });
+    this.isEditMode = false;
+    this.openDialog({});
   }
 
   updateProduct(): void {
@@ -98,4 +96,16 @@ export class ProductlistComponent implements OnInit {
       console.log('Enter valid data!');
     }
   }
+
+  openDialog(product: any): void {
+    
+    const dialogRef = this.dialog.open(EditComponent, {
+      width: '700px',
+      data: {
+        isEdit: this.isEditMode,
+        product: product
+      }
+    });
+  }
+
 }

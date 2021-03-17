@@ -63,7 +63,7 @@ export class HttpDataService {
     }
 
     // Create a new product
-    createItem(product: Product): Observable<Product> {
+    createItem(product: any): Observable<Product> {
         return this.http
           .post<Product>(this.basePath, JSON.stringify(product), this.httpOptions)
           .pipe(
@@ -93,7 +93,7 @@ export class HttpDataService {
     }
 
     // Update product by product id
-    updateItem(productId: number, product: Product): Observable<Product> {
+    updateItem(productId: number, product: any): Observable<Product> {
         return this.http
         .put<Product>(this.basePath + '/' + productId, JSON.stringify(product), this.httpOptions)
         .pipe(
